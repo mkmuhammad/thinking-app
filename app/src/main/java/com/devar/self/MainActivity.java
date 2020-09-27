@@ -54,39 +54,36 @@ public class MainActivity extends AppCompatActivity {
 
     private void initUserFirebase() {
         firebaseAuth = FirebaseAuth.getInstance();
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() != null) {
-                    currentUser = firebaseAuth.getCurrentUser();
-                    String currentUserId = currentUser.getUid();
+        authStateListener = firebaseAuth -> {
+            if (firebaseAuth.getCurrentUser() != null) {
+                currentUser = firebaseAuth.getCurrentUser();
+                String currentUserId = currentUser.getUid();
 
-                    collectionReference.whereEqualTo("userId", currentUserId)
-                            .addSnapshotListener((QuerySnapshot value, FirebaseFirestoreException error) -> {
+                collectionReference.whereEqualTo("userId", currentUserId)
+                        .addSnapshotListener((QuerySnapshot value, FirebaseFirestoreException error) -> {
 
-                                if (error != null) {
-                                    Log.d(TAG, "initUserFirebase: "+ error.toString());
+                            if (error != null) {
+                                Log.d(TAG, "initUserFirebase: "+ error.toString());
+                            }
+
+                            assert value != null;
+                            if (!value.isEmpty()) {
+
+                                for (QueryDocumentSnapshot snapshot :
+                                        value) {
+                                    PostAPI postAPI = PostAPI.getInstance();
+                                    postAPI.setUserId(snapshot.getString("userId"));
+                                    postAPI.setUsername(snapshot.getString("username"));
+
+                                    MainActivity.this.startActivity(new Intent(MainActivity.this, JournalListActivity.class));
+                                    MainActivity.this.finish();
                                 }
+                            }
 
-                                assert value != null;
-                                if (!value.isEmpty()) {
+                        });
 
-                                    for (QueryDocumentSnapshot snapshot :
-                                            value) {
-                                        PostAPI postAPI = PostAPI.getInstance();
-                                        postAPI.setUserId(snapshot.getString("userId"));
-                                        postAPI.setUsername(snapshot.getString("username"));
-
-                                        MainActivity.this.startActivity(new Intent(MainActivity.this, JournalListActivity.class));
-                                        MainActivity.this.finish();
-                                    }
-                                }
-
-                            });
-
-                } else {
-                    Toast.makeText(MainActivity.this, "there is no user yet", Toast.LENGTH_SHORT).show();
-                }
+            } else {
+                Toast.makeText(MainActivity.this, "there is no user yet", Toast.LENGTH_SHORT).show();
             }
         };
     }

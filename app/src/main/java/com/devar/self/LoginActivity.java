@@ -35,8 +35,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText login_PasswordEditText;
     private ProgressBar login_ProgressBar;
     private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener authStateListener;
-    private FirebaseUser currentUser;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -69,9 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         firebaseAuth = FirebaseAuth.getInstance();
     }
 
-   /* private boolean isStringsEmpty(String s1, String s2) {
-        return ((TextUtils.isEmpty(s1)) &&(TextUtils.isEmpty(s2)));
-    }*/
+
 
     @Override
     public void onClick(View v) {
@@ -100,10 +96,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     .whereEqualTo("userId", currentUserId)
                                     .addSnapshotListener((QuerySnapshot value, FirebaseFirestoreException error) -> {
 
-                                        if (error != null) {//means we have a problem
+                                        if (error != null) {
                                             Toast.makeText(LoginActivity.this, "error from server occurred, tryAgain", Toast.LENGTH_SHORT).show();
                                         }
-//                                        assert value != null;
                                         if (value != null) {
                                             if (!value.isEmpty()) {
                                                 for (QueryDocumentSnapshot snapshot :

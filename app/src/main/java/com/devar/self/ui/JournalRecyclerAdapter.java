@@ -29,7 +29,6 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecyclerAdapter.ViewHolder> {
-    private static final String TAG = "JournalRecyclerAdapter";
     private Context context;
     private List<PostObj> postObjList;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -87,11 +86,8 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
 
 
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
+                    .addOnFailureListener(e -> {
 
-                        }
                     });
 
 
@@ -107,8 +103,6 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
         private LinearLayout row_linearLayout;
         private TextView row_titleTV, row_thoughTV, row_dateTV, row_name;
         private ImageView row_imageView;
-        private String userId;
-        private String username;
         private ImageButton row_shareButton;
 
         public ViewHolder(@NonNull View itemView, Context ctx) {
@@ -121,17 +115,6 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
             row_imageView = itemView.findViewById(R.id.row_image_list);
             row_name = itemView.findViewById(R.id.row_userName);
             row_shareButton = itemView.findViewById(R.id.row_share_button);
-            row_shareButton.setOnClickListener(v -> {
-
-
-                //todo:share button
-//                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-//                shareIntent.setType("text/plain");
-//                String text ="";
-//                shareIntent.putExtra(Intent.EXTRA_SUBJECT, text);
-//                context.startActivity(Intent.createChooser(shareIntent, "Share post with"));
-
-            });
 
         }
     }

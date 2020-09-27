@@ -109,12 +109,11 @@ public class CreateAccountActivity extends AppCompatActivity {
 
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener((Task<AuthResult> task) -> {
-                        if (task.isSuccessful()/*if user is created*/) {
+                        if (task.isSuccessful()) {
                             currentUser = firebaseAuth.getCurrentUser();
                             assert currentUser != null;
                             String currentUserId = currentUser.getUid();
 
-                            //create user map so we can create user in the user collection
                             Map<String, String> userObject = new HashMap<>();
                             userObject.put("userId", currentUserId);
                             userObject.put("username", username);
@@ -133,10 +132,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                                                 journalAPI.setUserId(currentUserId);
                                                 journalAPI.setUsername(name);
 
-                                                /*Intent intent = new Intent(CreateAccountActivity.this,
-                                                        PostJournalActivity.class);
-                                                intent.putExtra("username", name);
-                                                intent.putExtra("userId", currentUserId);*/
+
                                                 startActivity(new Intent(CreateAccountActivity.this,LoginActivity.class));
                                                 finish();
                                             } else {
@@ -153,7 +149,6 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
                         } else {
-                            //something went wrong
                             Toast.makeText(CreateAccountActivity.this, "Server doesn't respond, try again", Toast.LENGTH_SHORT).show();
                         }
                     })

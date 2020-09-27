@@ -34,19 +34,15 @@ import java.util.Objects;
 
 public class JournalListActivity extends AppCompatActivity {
 
-    private static final String TAG = "JournalListActivity";
     private List<PostObj> postObjList;
     private RecyclerView pList_recyclerView;
     private JournalRecyclerAdapter postRecyclerAdapter;
     private FloatingActionButton floatingActionButton;
     private TextView pList_noThought;
-    private ImageButton shareButton;
 
     private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseUser user;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private StorageReference storageReference;
     private CollectionReference collectionReference = db.collection("PostObj");
 
     @Override
@@ -64,14 +60,6 @@ public class JournalListActivity extends AppCompatActivity {
             startActivity(new Intent(JournalListActivity.this, PostJournalActivity.class));
         });
 
-//        shareButton.setOnClickListener(v -> {
-//            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-//            shareIntent.setType("text/plain");
-//            String test = collectionReference.document("PostObj").getId();
-//            String text =test;
-//            shareIntent.putExtra(Intent.EXTRA_SUBJECT,text);
-//            startActivity(Intent.createChooser(shareIntent,"Share post with"));
-//        });
 
     }
 
@@ -85,7 +73,6 @@ public class JournalListActivity extends AppCompatActivity {
         pList_recyclerView.setHasFixedSize(true);
         pList_recyclerView.setLayoutManager(new LinearLayoutManager(this));
         floatingActionButton = findViewById(R.id.floatingActionButton);
-        shareButton = findViewById(R.id.row_share_button);
 
     }
 

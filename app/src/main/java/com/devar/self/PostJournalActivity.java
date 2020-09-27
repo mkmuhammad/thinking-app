@@ -73,7 +73,6 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
         authStateListener = (FirebaseAuth firebaseAuth) -> {
             user = firebaseAuth.getCurrentUser();
 
-            //todo: what is this for?
             if (user != null) {
                 Log.d(TAG, "onCreate: authListener");
             } else {
@@ -114,7 +113,6 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
     protected void onStart() {
         super.onStart();
         user = firebaseAuth.getCurrentUser();
-        //todo: what is this for?
         firebaseAuth.addAuthStateListener(authStateListener);
         Log.d(TAG, "onStart: authListener");
 
