@@ -40,12 +40,12 @@
 
     <TextView
         android:id="@+id/post_dateTextView"
-        android:layout_width="100dp"
-        android:layout_height="24dp"
+        android:layout_width="116dp"
+        android:layout_height="14dp"
         android:alpha="0.9"
         android:text="@string/post_dateTV"
         android:textColor="@color/light_shine_green"
-        android:textSize="18sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/post_header"
         app:layout_constraintEnd_toEndOf="@+id/post_header"
         app:layout_constraintHorizontal_bias="0.042"

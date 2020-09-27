@@ -208,7 +208,6 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
             if (imageUri != null){
                 psot_CameraButtonIV.setAlpha(0.2f);
                 post_usernameTV.setVisibility(View.INVISIBLE);
-                post_dateTV.setVisibility(View.INVISIBLE);
 
             }
 
