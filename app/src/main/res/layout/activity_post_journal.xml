@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant_bd"
+    tools:context=".PostJournalActivity">
+
+    <ImageView
+        android:id="@+id/post_header"
+        android:layout_width="410dp"
+        android:layout_height="274dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="324dp"
+        android:src="@drawable/image_three"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.008" />
+
+    <TextView
+        android:id="@+id/post_usernameTextView"
+        android:layout_width="134dp"
+        android:layout_height="35dp"
+        android:alpha="0.5"
+        android:text="@string/post_nameTV"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="@+id/post_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/post_header"
+        app:layout_constraintVertical_bias="0.792" />
+
+    <TextView
+        android:id="@+id/post_dateTextView"
+        android:layout_width="100dp"
+        android:layout_height="24dp"
+        android:alpha="0.9"
+        android:text="@string/post_dateTV"
+        android:textColor="@color/light_shine_green"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/post_header"
+        app:layout_constraintEnd_toEndOf="@+id/post_header"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_usernameTextView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/post_cameraButton"
+        android:layout_width="117dp"
+        android:layout_height="107dp"
+        app:layout_constraintBottom_toBottomOf="@+id/post_header"
+        app:layout_constraintEnd_toEndOf="@+id/post_header"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <EditText
+        android:id="@+id/post_titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:ems="10"
+        android:hint="@string/post_titleET"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:background="@drawable/input_outline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_header"
+        app:layout_constraintVertical_bias="0.096" />
+
+    <EditText
+        android:id="@+id/post_descriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/input_outline"
+        android:padding="15dp"
+        android:ems="10"
+        android:hint="@string/post_your_thoughtsET"
+        android:inputType="textMultiLine"
+        android:textSize="20sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_titleEditText"
+        app:layout_constraintVertical_bias="0.01999998" />
+
+    <ProgressBar
+        android:id="@+id/post_ProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_descriptionEditText"
+        app:layout_constraintVertical_bias="0.081" />
+
+    <Button
+        android:id="@+id/post_saveJournalButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="@string/post_saveButton"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_ProgressBar"
+        app:layout_constraintVertical_bias="0.895" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
