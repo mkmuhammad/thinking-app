@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Self</string>
+    <string name="app_name">Thinking</string>
     <string name="title_text">Think Think Think</string>
     <string name="grateful_text">What are you Thinking about?</string>
     <string name="get_started_text">Get Start</string>
@@ -16,5 +16,5 @@
     <string name="post_nameTV">Alex</string>
     <string name="menu_title">Add Thoughts</string>
     <string name="action_signout">SignOut</string>
-    <string name="jList_no_thought_TV">Write a Journal Entry by Clicking  +</string>
+    <string name="jList_no_thought_TV">Write a Post Entry by Clicking  +</string>
 </resources>
