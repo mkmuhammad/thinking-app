@@ -1,2 +1,6 @@
 # thinking-app
-this is practice project to demonstrate of using firebase for an app represent a social media app which asks what's user think of and save a picture that user uploads.
+This is practice project to demonstrate of using firebase for an app represent a social media app which asks what's user thinks and provide a feed for thoughts of user.
+It includes using Firebase services such as 
+Firestore Database
+Authentication
+Storage and etc.
