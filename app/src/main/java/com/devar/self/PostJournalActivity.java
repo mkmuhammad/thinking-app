@@ -14,7 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,17 +29,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
 public class PostJournalActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "PostJournalActivity";
     private static final int GALLERY_CODE = 1;
-    private ImageView post_HeaderIV, psot_CameraButtonIV;
+    private ImageView post_HeaderIV, post_CameraButtonIV;
     private TextView post_usernameTV, post_dateTV;
     private EditText post_titleET, post_descriptionET;
     private ProgressBar post_progressBar;
@@ -67,7 +63,7 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
         initViews();
 
 
-        psot_CameraButtonIV.setOnClickListener(this);
+        post_CameraButtonIV.setOnClickListener(this);
         post_SaveButton.setOnClickListener(this);
 
         authStateListener = (FirebaseAuth firebaseAuth) -> {
@@ -89,7 +85,7 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
 
     private void initViews() {
         post_HeaderIV = findViewById(R.id.post_header);
-        psot_CameraButtonIV = findViewById(R.id.post_cameraButton);
+        post_CameraButtonIV = findViewById(R.id.post_cameraButton);
         post_usernameTV = findViewById(R.id.post_usernameTextView);
         post_dateTV = findViewById(R.id.post_dateTextView);
         post_titleET = findViewById(R.id.post_titleEditText);
@@ -206,7 +202,8 @@ public class PostJournalActivity extends AppCompatActivity implements View.OnCli
             post_HeaderIV.setImageURI(imageUri);
 
             if (imageUri != null){
-                psot_CameraButtonIV.setAlpha(0.2f);
+//                post_CameraButtonIV.setAlpha(0.2f);
+                post_CameraButtonIV.setVisibility(View.INVISIBLE);
                 post_usernameTV.setVisibility(View.INVISIBLE);
 
             }
