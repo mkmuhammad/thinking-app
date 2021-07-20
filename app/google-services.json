@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "1011940885886",
-    "firebase_url": "https://self-4cf51.firebaseio.com",
-    "project_id": "self-4cf51",
-    "storage_bucket": "self-4cf51.appspot.com"
+    "project_number": "*******",
+    "firebase_url": "*******",
+    "project_id": "*********",
+    "storage_bucket": "*********"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1011940885886:android:97fd54ef549e40552e9f2f",
+        "mobilesdk_app_id": "***************",
         "android_client_info": {
           "package_name": "com.devar.self"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1011940885886-d0jc2c6mhlksfpi1bb6jgebbkql67rn1.apps.googleusercontent.com",
+          "client_id": "***********",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCS7xlm26UepeJT20j9Jm2UzRig1J5_MZc"
+          "current_key": "************"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1011940885886-d0jc2c6mhlksfpi1bb6jgebbkql67rn1.apps.googleusercontent.com",
+              "client_id": "***********",
               "client_type": 3
             }
           ]
